@@ -1,45 +1,56 @@
-import java.util.Scanner; 
-public class main{
-    public static void main (String args[ ]) {
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter first no.");
-        float a = sc.nextFloat();
-        System.out.println("Enter second no.");
-        float b = sc.nextFloat();
-        System.out.println("Enter a quick expression");
-        char osd = sc.next().charAt(0);
-        float s = a-b;float r = a+b;float q = a*a;float p = b*b;
-        switch(osd){
+
+        System.out.println("Enter first number:");
+        float num1 = sc.nextFloat();
+
+        System.out.println("Enter second number:");
+        float num2 = sc.nextFloat();
+
+        System.out.println("Enter an operation (+, -, *, /, ^, $):");
+        char operation = sc.next().charAt(0);
+
+        float subtraction = num1 - num2;
+        float addition = num1 + num2;
+        float squareNum1 = num1 * num1;
+        float squareNum2 = num2 * num2;
+
+        switch(operation) {
             case '+':
-                System.out.println("A added to B is "+ r);
+                System.out.println("A added to B is " + addition);
                 break;
             case '-':
-                System.out.println("A subtracted by B is "+ s);
+                System.out.println("A subtracted by B is " + subtraction);
                 break;
             case '*':
-                System.out.println("A Multiplied by B is "+a*b);
+                System.out.println("A multiplied by B is " + num1 * num2);
                 break;
             case '/':
-                System.out.println("A Divided by B is "+ a/b);
+                System.out.println("A divided by B is " + num1 / num2);
                 break;
             case '^':
-                System.out.println("Square of A is "+ q);
-                System.out.println("Square of B is "+ p);
-                System.out.println("Power of A times B "+ Math.pow(a,b));
+                System.out.println("Square of A is " + squareNum1);
+                System.out.println("Square of B is " + squareNum2);
+                System.out.println("A to the power of B is " + Math.pow(num1, num2));
                 break;
             case '$':
-                System.out.println("Root of A is "+ Math.sqrt(a));
-                System.out.println("Root of B is "+ Math.sqrt(b));
-            default:
-                error();
+                System.out.println("Square root of A is " + Math.sqrt(num1));
+                System.out.println("Square root of B is " + Math.sqrt(num2));
                 break;
-
+            default:
+                displayError();
+                break;
         }
+
         sc.close();
-}
-    public static void error(){
-        throw new RuntimeException("Look at brighter side 'do it again'");
     }
 
-}  
+    public static void displayError() {
+        throw new RuntimeException("Invalid operation. Please try again.");
+    }
+}
+
 
